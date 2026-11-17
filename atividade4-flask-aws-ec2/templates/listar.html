@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Mensagens | Galax{% endblock %}
+
+{% block main_class %}page-main{% endblock %}
+
+{% block content %}
+    <section class="container contact-section">
+      <article class="card info-panel shadow-lg">
+        <div class="card-body p-4 p-md-5">
+          <h1 class="page-title text-start">Mensagens recebidas</h1>
+
+          {% if erro %}
+          <div class="alert alert-danger" role="alert">Não foi possível consultar o banco de dados.</div>
+          {% elif contatos %}
+          <div class="table-responsive">
+            <table class="table table-dark table-striped align-middle mb-0">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Assunto</th>
+                  <th>Mensagem</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for c in contatos %}
+                <tr>
+                  <td>{{ c.id }}</td>
+                  <td>{{ c.nome }}</td>
+                  <td>{{ c.email }}</td>
+                  <td>{{ c.assunto }}</td>
+                  <td>{{ c.mensagem }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          {% else %}
+          <p class="mb-0">Nenhuma mensagem cadastrada ainda.</p>
+          {% endif %}
+
+          <a href="{{ url_for('contato') }}" class="btn galax-btn mt-4">Enviar uma mensagem</a>
+        </div>
+      </article>
+    </section>
+{% endblock %}

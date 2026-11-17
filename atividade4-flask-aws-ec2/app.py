@@ -62,5 +62,26 @@ def contato():
     return render_template("contato.html", enviado=request.args.get("enviado"))
 
 
+@app.route("/listar")
+def listar():
+    conn = None
+    try:
+        conn = get_connection()
+        with conn.cursor(pymysql.cursors.DictCursor) as cur:
+            cur.execute(
+                "SELECT id, nome, email, assunto, mensagem "
+                "FROM contatos ORDER BY id DESC"
+            )
+            contatos = cur.fetchall()
+    except pymysql.MySQLError:
+        app.logger.exception("Erro ao consultar contatos no banco")
+        return render_template("listar.html", erro=True, contatos=[]), 500
+    finally:
+        if conn is not None:
+            conn.close()
+
+    return render_template("listar.html", contatos=contatos)
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
