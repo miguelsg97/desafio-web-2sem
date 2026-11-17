@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Galax{% endblock %}
+
+{% block content %}
+  <section class="hero-home" aria-label="Séries em destaque">
+    <div id="galaxCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#galaxCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#galaxCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#galaxCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active hero-slide" style="background-image: linear-gradient(rgba(0,0,0,.25), rgba(24,20,28,.85)), url('{{ url_for('static', filename='img/imagem-home.png') }}');">
+          <div class="hero-content">
+            <img src="{{ url_for('static', filename='img/logo-imagem-home.png') }}" alt="Galax" class="hero-wordmark">
+            <h1>Suas séries favoritas aqui</h1>
+            <a href="#catalogo" class="btn botao-navegar">Navegar</a>
+          </div>
+        </div>
+        <div class="carousel-item hero-slide" style="background-image: linear-gradient(rgba(0,0,0,.35), rgba(24,20,28,.88)), url('{{ url_for('static', filename='img/stranger-things-background.png') }}');">
+          <div class="hero-content">
+            <h2>Ficção Científica e Thriller</h2>
+            <p>Stranger Things, Lost, Mr. Robot e mais.</p>
+          </div>
+        </div>
+        <div class="carousel-item hero-slide" style="background-image: linear-gradient(rgba(0,0,0,.35), rgba(24,20,28,.88)), url('{{ url_for('static', filename='img/the-office-background.png') }}');">
+          <div class="hero-content">
+            <h2>Sitcom</h2>
+            <p>Comédias para assistir e reassistir.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#galaxCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#galaxCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
+    </div>
+  </section>
+
+  <section id="catalogo" class="catalog-wrapper" aria-label="Catálogo de séries por gênero">
+
+    <section class="catalog-section container" aria-labelledby="drama">
+      <h2 id="drama" class="section-title">Drama</h2>
+      <div class="row row-cols-2 row-cols-md-3 row-cols-xl-5 g-4 justify-content-center">
+        <article class="col">
+          <div class="card serie-card h-100" role="button" data-bs-toggle="modal" data-bs-target="#serieModal" data-title="Breaking Bad" data-genre="Drama" data-image="{{ url_for('static', filename='img/breaking-bad.png') }}">
+            <img src="{{ url_for('static', filename='img/breaking-bad.png') }}" class="card-img-top cartaz" alt="Cartaz de Breaking Bad">
+            <div class="card-body text-center">
+              <h3 class="card-title">Breaking Bad</h3>
+              <span class="badge rounded-pill genre-badge">Drama</span>
+            </div>
+          </div>
+        </article>
+        <article class="col">
+          <div class="card serie-card h-100" role="button" data-bs-toggle="modal" data-bs-target="#serieModal" data-title="Better Call Saul" data-genre="Drama" data-image="{{ url_for('static', filename='img/better-call-saul.png') }}">
+            <img src="{{ url_for('static', filename='img/better-call-saul.png') }}" class="card-img-top cartaz" alt="Cartaz de Better Call Saul">
+            <div class="card-body text-center">
+              <h3 class="card-title">Better Call Saul</h3>
+              <span class="badge rounded-pill genre-badge">Drama</span>
+            </div>
+          </div>
+        </article>
+        <article class="col">
+          <div class="card serie-card h-100" role="button" data-bs-toggle="modal" data-bs-target="#serieModal" data-title="Lost" data-genre="Drama" data-image="{{ url_for('static', filename='img/lost.png') }}">
+            <img src="{{ url_for('static', filename='img/lost.png') }}" class="card-img-top cartaz" alt="Cartaz de Lost">
+            <div class="card-body text-center">
+              <h3 class="card-title">Lost</h3>
+              <span class="badge rounded-pill genre-badge">Drama</span>
+            </div>
+          </div>
+        </article>
+        <article class="col">
+          <div class="card serie-card h-100" role="button" data-bs-toggle="modal" data-bs-target="#serieModal" data-title="Família Soprano" data-genre="Drama" data-image="{{ url_for('static', filename='img/familia-soprano.png') }}">
+            <img src="{{ url_for('static', filename='img/familia-soprano.png') }}" class="card-img-top cartaz" alt="Cartaz de Família Soprano">
+            <div class="card-body text-center">
+              <h3 class="card-title">Família Soprano</h3>
+              <span class="badge rounded-pill genre-badge">Drama</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="catalog-section container" aria-labelledby="ficcao-cientifica">
+      <h2 id="ficcao-cientifica" class="section-title">Ficção Científica e Thriller</h2>
+      <div class="row row-cols-2 row-cols-md-3 row-cols-xl-5 g-4 justify-content-center">
+        <article class="col">
+          <div class="card serie-card h-100" role="button" data-bs-toggle="modal" data-bs-target="#serieModal" data-title="Stranger Things" data-genre="Ficção Científica e Thriller" data-image="{{ url_for('static', filename='img/stranger-things.png') }}">
+            <img src="{{ url_for('static', filename='img/stranger-things.png') }}" class="card-img-top cartaz" alt="Cartaz de Stranger Things">
+            <div class="card-body text-center">
+              <h3 class="card-title">Stranger Things</h3>
+              <span class="badge rounded-pill genre-badge">Ficção Científica e Thriller</span>
+            </div>
+          </div>
+        </article>
+        <article class="col">
+          <div class="card serie-card h-100" role="button" data-bs-toggle="modal" data-bs-target="#serieModal" data-title="Lost" data-genre="Ficção Científica e Thriller" data-image="{{ url_for('static', filename='img/lost.png') }}">
+            <img src="{{ url_for('static', filename='img/lost.png') }}" class="card-img-top cartaz" alt="Cartaz de Lost">
+            <div class="card-body text-center">
+              <h3 class="card-title">Lost</h3>
+              <span class="badge rounded-pill genre-badge">Ficção Científica e Thriller</span>
+            </div>
+          </div>
+        </article>
+        <article class="col">
+          <div class="card serie-card h-100" role="button" data-bs-toggle="modal" data-bs-target="#serieModal" data-title="Mr. Robot" data-genre="Ficção Científica e Thriller" data-image="{{ url_for('static', filename='img/mr-robot.png') }}">
+            <img src="{{ url_for('static', filename='img/mr-robot.png') }}" class="card-img-top cartaz" alt="Cartaz de Mr. Robot">
+            <div class="card-body text-center">
+              <h3 class="card-title">Mr. Robot</h3>
+              <span class="badge rounded-pill genre-badge">Ficção Científica e Thriller</span>
+            </div>
+          </div>
+        </article>
+        <article class="col">
+          <div class="card serie-card h-100" role="button" data-bs-toggle="modal" data-bs-target="#serieModal" data-title="The Walking Dead" data-genre="Ficção Científica e Thriller" data-image="{{ url_for('static', filename='img/the-walking-dead.png') }}">
+            <img src="{{ url_for('static', filename='img/the-walking-dead.png') }}" class="card-img-top cartaz" alt="Cartaz de The Walking Dead">
+            <div class="card-body text-center">
+              <h3 class="card-title">The Walking Dead</h3>
+              <span class="badge rounded-pill genre-badge">Ficção Científica e Thriller</span>
+            </div>
+          </div>
+        </article>
+        <article class="col">
+          <div class="card serie-card h-100" role="button" data-bs-toggle="modal" data-bs-target="#serieModal" data-title="Supernatural" data-genre="Ficção Científica e Thriller" data-image="{{ url_for('static', filename='img/supernatural.png') }}">
+            <img src="{{ url_for('static', filename='img/supernatural.png') }}" class="card-img-top cartaz" alt="Cartaz de Supernatural">
+            <div class="card-body text-center">
+              <h3 class="card-title">Supernatural</h3>
+              <span class="badge rounded-pill genre-badge">Ficção Científica e Thriller</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="catalog-section container" aria-labelledby="sitcom">
+      <h2 id="sitcom" class="section-title">Sitcom</h2>
+      <div class="row row-cols-2 row-cols-md-3 row-cols-xl-5 g-4 justify-content-center">
+        <article class="col">
+          <div class="card serie-card h-100" role="button" data-bs-toggle="modal" data-bs-target="#serieModal" data-title="The Office" data-genre="Sitcom" data-image="{{ url_for('static', filename='img/the-office.png') }}">
+            <img src="{{ url_for('static', filename='img/the-office.png') }}" class="card-img-top cartaz" alt="Cartaz de The Office">
+            <div class="card-body text-center">
+              <h3 class="card-title">The Office</h3>
+              <span class="badge rounded-pill genre-badge">Sitcom</span>
+            </div>
+          </div>
+        </article>
+        <article class="col">
+          <div class="card serie-card h-100" role="button" data-bs-toggle="modal" data-bs-target="#serieModal" data-title="Brooklyn Nine-Nine" data-genre="Sitcom" data-image="{{ url_for('static', filename='img/brooklyn-99.png') }}">
+            <img src="{{ url_for('static', filename='img/brooklyn-99.png') }}" class="card-img-top cartaz" alt="Cartaz de Brooklyn Nine-Nine">
+            <div class="card-body text-center">
+              <h3 class="card-title">Brooklyn Nine-Nine</h3>
+              <span class="badge rounded-pill genre-badge">Sitcom</span>
+            </div>
+          </div>
+        </article>
+        <article class="col">
+          <div class="card serie-card h-100" role="button" data-bs-toggle="modal" data-bs-target="#serieModal" data-title="Todo Mundo Odeia o Chris" data-genre="Sitcom" data-image="{{ url_for('static', filename='img/todo-mundo-odeia-o-chris.png') }}">
+            <img src="{{ url_for('static', filename='img/todo-mundo-odeia-o-chris.png') }}" class="card-img-top cartaz" alt="Cartaz de Todo Mundo Odeia o Chris">
+            <div class="card-body text-center">
+              <h3 class="card-title">Todo Mundo Odeia o Chris</h3>
+              <span class="badge rounded-pill genre-badge">Sitcom</span>
+            </div>
+          </div>
+        </article>
+        <article class="col">
+          <div class="card serie-card h-100" role="button" data-bs-toggle="modal" data-bs-target="#serieModal" data-title="Um Maluco no Pedaço" data-genre="Sitcom" data-image="{{ url_for('static', filename='img/um-maluco-no-pedaco.png') }}">
+            <img src="{{ url_for('static', filename='img/um-maluco-no-pedaco.png') }}" class="card-img-top cartaz" alt="Cartaz de Um Maluco no Pedaço">
+            <div class="card-body text-center">
+              <h3 class="card-title">Um Maluco no Pedaço</h3>
+              <span class="badge rounded-pill genre-badge">Sitcom</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </section>
+
+  <div class="modal fade" id="serieModal" tabindex="-1" aria-labelledby="serieModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content galax-modal">
+        <div class="modal-header border-0">
+          <h2 class="modal-title fs-4" id="serieModalLabel"></h2>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="serieModalImage" src="" alt="" class="modal-poster mb-3">
+          <p class="mb-0">Gênero: <span id="serieModalGenre" class="badge rounded-pill genre-badge"></span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const serieModal = document.getElementById('serieModal');
+
+      if (serieModal) {
+        serieModal.addEventListener('show.bs.modal', function (event) {
+          const card = event.relatedTarget;
+
+          const title = card.getAttribute('data-title');
+          const genre = card.getAttribute('data-genre');
+          const image = card.getAttribute('data-image');
+
+          const modalTitle = document.getElementById('serieModalLabel');
+          if (modalTitle) modalTitle.textContent = title || '';
+
+          const modalImage = document.getElementById('serieModalImage');
+          if (modalImage) {
+            modalImage.src = image || '';
+            modalImage.alt = title ? 'Cartaz de ' + title : 'Cartaz da série';
+          }
+
+          const modalGenre = document.getElementById('serieModalGenre');
+          if (modalGenre) {
+            modalGenre.textContent = genre || '';
+          }
+        });
+      }
+    });
+  </script>
+{% endblock %}
